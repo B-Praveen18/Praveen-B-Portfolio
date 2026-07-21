@@ -253,9 +253,9 @@ function Hero() {
 
 function ProfileCard() {
   return (
-    <div className="relative">
+    <div className="relative mx-auto md:ml-auto md:mr-0 max-w-[260px]">
       <div className="absolute -inset-2 border border-border" aria-hidden />
-      <div className="relative bg-card border border-border p-6">
+      <div className="relative bg-card border border-border p-4">
         <div className="aspect-[4/5] w-full bg-secondary overflow-hidden">
           <img
             src={praveenPhoto.url}
@@ -264,9 +264,9 @@ function ProfileCard() {
             loading="eager"
           />
         </div>
-        <div className="pt-5 flex items-center justify-between">
+        <div className="pt-4 flex items-center justify-between">
           <div>
-            <div className="font-display text-lg">{profile.name}</div>
+            <div className="font-display text-base">{profile.name}</div>
             <div className="text-xs uppercase tracking-widest text-muted-foreground mt-1">
               CSE · Class of 2028
             </div>
