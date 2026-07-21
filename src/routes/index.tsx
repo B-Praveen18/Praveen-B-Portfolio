@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Nav } from "@/components/portfolio/Nav";
 import { Reveal } from "@/components/portfolio/Reveal";
+import praveenPhoto from "@/assets/praveen.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
