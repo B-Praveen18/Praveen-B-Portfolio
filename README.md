@@ -1,29 +1,42 @@
-# Welcome to your Lovable project
+# Praveen B — Portfolio
 
-This project was built with [Lovable](https://lovable.dev).
+Welcome to my personal portfolio website.
 
-## Build with Lovable
+This portfolio showcases my projects, technical skills, interests, and experience as a Computer Science and Engineering student. It also provides an overview of the technologies I work with and the projects I have built.
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## About Me
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+I am a Computer Science and Engineering student interested in building practical software and exploring different areas of technology. My interests include full-stack development, AI/ML, embedded systems, and IoT.
 
-## Development
+## Featured Projects
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+The portfolio includes selected projects that demonstrate my experience in software development, problem-solving, and building practical applications.
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+## Skills
 
-## Built with
+- Programming & Problem Solving
+- Data Structures & Algorithms
+- Full-Stack Development
+- AI/ML
+- Database Management
+- Embedded Systems
+- IoT
 
-- TanStack Start
-- TypeScript
+## Tech Stack
+
 - React
+- TypeScript
+- Vite
 - Tailwind CSS
+
+## Live Demo
+
+[View Portfolio](praveen-b-folio.vercel.app)
+
+## Contact
+
+Feel free to connect with me for opportunities, collaborations, or interesting projects.
+
+---
+
+Built by **Praveen B**
