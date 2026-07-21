@@ -31,7 +31,7 @@ The portfolio includes selected projects that demonstrate my experience in softw
 
 ## Live Demo
 
-praveen-b-folio.vercel.app
+[Live Demo](https://praveen-b-folio.vercel.app)
 
 ## Contact
 
