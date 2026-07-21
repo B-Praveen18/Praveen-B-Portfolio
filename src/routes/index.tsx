@@ -256,44 +256,13 @@ function ProfileCard() {
     <div className="relative">
       <div className="absolute -inset-2 border border-border" aria-hidden />
       <div className="relative bg-card border border-border p-6">
-        <div className="aspect-[4/5] w-full bg-secondary flex items-center justify-center overflow-hidden">
-          {/* Monogram avatar — replace with a real photo when available */}
-          <svg
-            viewBox="0 0 200 250"
-            className="h-full w-full"
-            role="img"
-            aria-label="Portrait placeholder for Praveen B"
-          >
-            <defs>
-              <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0" stopColor="oklch(0.94 0.02 70)" />
-                <stop offset="1" stopColor="oklch(0.88 0.03 60)" />
-              </linearGradient>
-            </defs>
-            <rect width="200" height="250" fill="url(#bg)" />
-            <text
-              x="100"
-              y="140"
-              textAnchor="middle"
-              fontFamily="Fraunces, serif"
-              fontSize="110"
-              fill="oklch(0.28 0.02 60)"
-              fontWeight="500"
-            >
-              PB
-            </text>
-            <text
-              x="100"
-              y="200"
-              textAnchor="middle"
-              fontFamily="Inter, sans-serif"
-              fontSize="9"
-              letterSpacing="4"
-              fill="oklch(0.4 0.02 60)"
-            >
-              PRAVEEN · B
-            </text>
-          </svg>
+        <div className="aspect-[4/5] w-full bg-secondary overflow-hidden">
+          <img
+            src={praveenPhoto.url}
+            alt="Portrait of Praveen B"
+            className="h-full w-full object-cover"
+            loading="eager"
+          />
         </div>
         <div className="pt-5 flex items-center justify-between">
           <div>
