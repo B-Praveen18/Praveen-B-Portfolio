@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Praveen B — Computer Science & Engineering Student" },
+      { title: "Praveen B | Portfolio" },
       {
         name: "description",
         content:
           "Portfolio of Praveen B, a Computer Science & Engineering student building AI/ML, full-stack, and IoT projects from Madurai, Tamil Nadu.",
       },
       { name: "author", content: "Praveen B" },
-      { property: "og:title", content: "Praveen B — CSE Student & Developer" },
+      { property: "og:title", content: "Praveen B | Portfolio" },
       {
         property: "og:description",
         content:

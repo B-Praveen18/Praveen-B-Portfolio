@@ -12,19 +12,18 @@ import {
 } from "lucide-react";
 import { Nav } from "@/components/portfolio/Nav";
 import { Reveal } from "@/components/portfolio/Reveal";
-import praveenPhoto from "@/assets/praveen.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
   head: () => ({
     meta: [
-      { title: "Praveen B — CSE Student & Developer" },
+      { title: "Praveen B | Portfolio" },
       {
         name: "description",
         content:
           "Portfolio of Praveen B — Computer Science & Engineering student working on AI/ML, full-stack, and IoT projects.",
       },
-      { property: "og:title", content: "Praveen B — CSE Student & Developer" },
+      { property: "og:title", content: "Praveen B | Portfolio" },
       {
         property: "og:description",
         content:
@@ -258,7 +257,7 @@ function ProfileCard() {
       <div className="relative bg-card border border-border p-4">
         <div className="aspect-[4/5] w-full bg-secondary overflow-hidden">
           <img
-            src={praveenPhoto.url}
+            src="/praveen.jpeg"
             alt="Portrait of Praveen B"
             className="h-full w-full object-cover"
             loading="eager"
@@ -603,15 +602,37 @@ function AchievementsAndCerts() {
 /* --- Contact --- */
 
 function Contact() {
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Hello from ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
-    setStatus("sent");
+    setStatus("sending");
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${profile.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `Hello from ${form.name}`,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to send message");
+      }
+
+      setForm({ name: "", email: "", message: "" });
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -627,8 +648,8 @@ function Contact() {
             </h2>
             <p className="mt-6 text-foreground/75 max-w-md leading-relaxed">
               I&apos;m open to internships, project collaborations, and a good
-              conversation about engineering. The fastest way to reach me is
-              email.
+              conversation about engineering. If you want to say hello, fill
+              out the form below and send your message directly.
             </p>
           </Reveal>
           <Reveal delay={100}>
@@ -685,9 +706,13 @@ function Contact() {
                 </div>
                 <div className="flex items-center justify-between pt-2">
                   <span className="text-xs text-muted-foreground">
-                    {status === "sent"
-                      ? "Opening your email client…"
-                      : "I usually reply within a day."}
+                    {status === "sending"
+                      ? "Sending your message…"
+                      : status === "sent"
+                        ? "Thanks! Your message was sent."
+                        : status === "error"
+                          ? "Something went wrong. Please try again or email me directly."
+                          : "I usually reply within a day."}
                   </span>
                   <button
                     type="submit"
@@ -791,6 +816,12 @@ function Footer() {
           </div>
         </div>
         <div className="flex items-center gap-6 text-sm text-muted-foreground">
+          <a
+            href="#contact"
+            className="hover:text-foreground transition-colors inline-flex items-center gap-1.5 border border-border px-3 py-1.5 text-foreground"
+          >
+            <Mail className="h-4 w-4" /> Say Hello
+          </a>
           <a
             href={profile.github}
             target="_blank"
